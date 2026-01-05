@@ -1,9 +1,10 @@
 import React from "react";
-import { getBlogBySlug, getAllBlogs } from "@/app/blogs/[slug]/blog";
+import { getBlogBySlug, getAllBlogs } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { extractTOC } from "@/app/blogs/[slug]/toc";
+import { extractTOC } from "@/lib/toc";
 import TableOfContents from "@/app/components/TableOfContents";
 import ReadingProgressBar from "@/app/components/ReadingProgressBar";
+import BackToTop from "@/app/components/BackToTop";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -123,6 +124,23 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
                         <div className="min-w-0">
                             {/* Header Area */}
                             <header className="max-w-[680px] mb-12 mx-auto">
+                                {/* Mobile Logo */}
+                                <div className="lg:hidden mb-6">
+                                    <Link href="/" className="inline-block">
+                                        <div className="flex items-center gap-3">
+                                            <Image
+                                                src="/LGS.svg"
+                                                alt="Lime Green Studio"
+                                                width={32}
+                                                height={32}
+                                            />
+                                            <span className="text-lg font-coolvetica tracking-wide font-bold text-gray-900">
+                                                Lime Green Studio
+                                            </span>
+                                        </div>
+                                    </Link>
+                                </div>
+
                                 <Link
                                     href="/#blogs"
                                     className="lg:hidden inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-900 mb-8 transition-colors group uppercase tracking-wider"
@@ -175,6 +193,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
                 </div>
             </main>
 
+            <BackToTop />
         </div>
     );
 }
