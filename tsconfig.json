@@ -33,10 +33,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-<<<<<<< HEAD
-=======
     "app/components/cards/Word.jsx",
->>>>>>> 9dbbcdb (revamp v1)
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
