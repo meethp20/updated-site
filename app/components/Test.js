@@ -67,7 +67,7 @@ export default function Test() {
   return (
     <section
       id="testimonial"
-      className="relative py-16 md:py-24 bg-white overflow-hidden"
+      className="relative py-16 md:py-24 bg-gray-50 overflow-hidden"
     >
       {/* Decorative Background Blobs - top-left to bottom-right */}
       <div className="absolute top-0 left-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none -translate-x-1/3 -translate-y-1/3" />
