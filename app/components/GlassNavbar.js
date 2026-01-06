@@ -18,9 +18,12 @@ export default function GlassNavbar() {
   }, []);
 
   const navItems = [
-    { label: "Achievements", href: "#achievements" },
-    { label: "Blogs", href: "#blogs" },
+    { label: "Services", href: "#services" },
+    { label: "Comparison", href: "#comparison" },
+    { label: "Process", href: "#process" },
+    { label: "Pricing", href: "#pricing" },
     { label: "Testimonials", href: "#testimonial" },
+    { label: "Blogs", href: "#blogs" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -99,13 +102,13 @@ export default function GlassNavbar() {
           }`}
         >
           <div
-            className={`rounded-full md:border border-white/20 md:bg-white/30 md:backdrop-blur-xl md:shadow-2xl transition-all duration-500 ${
+            className={`rounded-full md:border border-white/50 md:bg-white/80 md:backdrop-blur-xl md:shadow-2xl transition-all duration-500 ${
               scrolled ? "md:shadow-black/5" : "md:shadow-black/10"
             }`}
           >
             {/* Main content */}
             <div
-              className={`relative flex items-center justify-center transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] md:px-6 md:py-2`}
+              className={`relative flex items-center justify-center transition-all duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] md:px-3 md:py-2`}
             >
               {/* Navigation Items */}
               <div className="flex items-center gap-2 md:gap-3">

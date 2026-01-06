@@ -94,12 +94,21 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            className="text-base md:text-lg lg:text-xl text-gray-700/70 font-sans"
+            className="text-base md:text-lg lg:text-xl text-gray-700/70 font-sans mb-8"
             variants={textVariants}
           >
             We take your idea from <span className="font-semibold">0 to 1</span>{" "}
             in just <span className="font-semibold italic">4 weeks</span>
           </motion.p>
+
+          <motion.div variants={textVariants}>
+            <a
+              href="#start-shipping"
+              className="inline-flex items-center justify-center px-8 py-3 text-lg font-bold text-black bg-lime-400 rounded-full shadow-lg shadow-lime-400/30 hover:bg-lime-500 hover:scale-105 active:scale-95 transition-all duration-300"
+            >
+              Start Shipping
+            </a>
+          </motion.div>
         </motion.div>
 
         {/* Mobile Marquee - Visible only on mobile */}

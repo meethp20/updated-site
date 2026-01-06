@@ -26,9 +26,9 @@ export default function StartShippingSection() {
       id="start-shipping"
       className="relative bg-white w-full py-0 md:py-16 md:px-12 lg:px-16 overflow-hidden"
     >
-      {/* ... (keep background blobs) ... */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-lime-200/30 blur-[120px] rounded-full mix-blend-multiply pointer-events-none -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-lime-200/30 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/2 translate-y-1/2" />
+      {/* Decorative Background Blobs - top-right to bottom-left */}
+      <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
       <motion.div
         className="w-full md:max-w-7xl md:mx-auto"
@@ -79,7 +79,7 @@ export default function StartShippingSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="font-coolvetica tracking-wide text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
+                className="font-coolvetica tracking-wide text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
               >
                 Start Shipping
               </motion.h1>

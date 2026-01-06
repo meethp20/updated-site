@@ -4,13 +4,13 @@ function slugify(text) {
     .toString()
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/[^\w\-]+/g, "") // Remove all non-word chars
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+    .replace(/\s+/g, "-") 
+    .replace(/[^\w\-]+/g, "") 
+    .replace(/\-\-+/g, "-"); 
 }
 
 export function extractTOC(content) {
-  // Matches ##, ###, #### headings
+  
   const headings = content.match(/#{2,4} .+/g) || [];
   return headings.map((heading) => {
     const text = heading.replace(/#{2,4} /, "").trim();

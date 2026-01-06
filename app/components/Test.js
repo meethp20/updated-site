@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { TestimonialsColumn } from "@/components/testimonials-columns";
 
 const testimonials = [
@@ -64,18 +65,27 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Test() {
   return (
-    <section className="relative py-10 bg-gray-50 overflow-hidden">
-      {/* Decorative Background Blobs */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-lime-200/30 blur-[120px] rounded-full mix-blend-multiply pointer-events-none -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-lime-200/30 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/2 translate-y-1/2" />
+    <section
+      id="testimonial"
+      className="relative py-16 md:py-24 bg-white overflow-hidden"
+    >
+      {/* Decorative Background Blobs - top-left to bottom-right */}
+      <div className="absolute top-0 left-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none -translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/3 translate-y-1/3" />
 
       <div className="mx-auto max-w-5xl relative z-10">
-        <div className="mx-auto flex max-w-sm flex-col items-center justify-center gap-4">
+        <motion.div
+          className="mx-auto flex max-w-3xl flex-col items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+        >
           <div className="flex justify-center">
             {/* <div className="rounded-lg border px-4 py-1">Testimonials</div> */}
           </div>
 
-          <h2 className="font-coolvetica tracking-wide font-bold text-3xl lg:text-4xl text-gray-900">
+          <h2 className="font-coolvetica tracking-wide font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900">
             What our{" "}
             <span className="bg-lime-400 text-black px-2 py-1 rounded-md inline-block">
               users
@@ -86,9 +96,9 @@ export default function Test() {
           <p className="text-center text-muted-foreground text-sm">
             See what our clients have to say about us.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-10 flex max-h-[740px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+        <div className="mt-10 flex max-h-[740px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
           <TestimonialsColumn duration={16} testimonials={firstColumn} />
           <TestimonialsColumn
             className="hidden md:block"

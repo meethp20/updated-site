@@ -11,6 +11,7 @@ import Three from "@/public/threecard.png";
 import Four from "@/public/fourcard.png";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { motion } from "framer-motion";
 
 function Second() {
   const handleEmailClick = () => {
@@ -18,7 +19,13 @@ function Second() {
   };
 
   return (
-    <div className="w-full font-display bg-white py-12 md:py-16 px-4 md:px-8 relative overflow-hidden">
+    <motion.div
+      className="w-full font-display bg-white py-12 md:py-16 px-4 md:px-8 relative overflow-hidden"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+    >
       {/* Decorative Background Blobs - Top Right & Bottom Left */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-lime-200/40 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-lime-200/40 blur-[120px] rounded-full mix-blend-multiply pointer-events-none -translate-x-1/3 translate-y-1/3" />
@@ -85,7 +92,7 @@ function Second() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
