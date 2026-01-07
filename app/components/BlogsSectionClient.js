@@ -1,13 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import BlogCard from "./cards/BlogCard";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function BlogsSectionClient({ blogs = [] }) {
   return (
     <motion.section
       id="blogs"
-      className="relative w-full py-16 md:py-24 bg-gray-50 overflow-hidden"
+      className="relative w-full py-16 md:py-24 bg-white overflow-hidden border-0"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -19,33 +21,58 @@ export default function BlogsSectionClient({ blogs = [] }) {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-coolvetica tracking-wide text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-16 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center justify-center gap-2 text-lime-600 font-semibold tracking-wide uppercase text-xs md:text-sm"
+          >
+            <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
+            Resource Hub
+            <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
+          </motion.div>
+          <h2 className="font-coolvetica tracking-wide text-4xl md:text-5xl lg:text-6xl text-gray-900 font-normal leading-tight">
             Latest{" "}
-            <span className="bg-lime-400 text-black px-2 py-1 rounded-md inline-block">
+            <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
               Insights
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-500 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Thoughts on building products, design engineering, and shipping
             fast.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {blogs.map((blog) => (
+        {/* Grid: All blogs on desktop, only first on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {blogs.map((blog, index) => (
             <div
               key={blog.slug}
-              className="w-full md:max-w-[calc(50%-2rem)] lg:max-w-[calc(33.33%-2rem)] flex-grow-0 flex-shrink-0"
-              style={{ flexBasis: "auto" }}
+              className={`${index > 0 ? "hidden md:block" : "block"} w-full`}
             >
               <BlogCard {...blog} />
             </div>
           ))}
         </div>
+
+        {/* This button is only visible on mobile as requested */}
+        <div className="mt-10 flex justify-center mb-12 md:hidden">
+          <Link
+            href="/blogs"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-black text-white font-semibold shadow-sm hover:opacity-90 transition"
+          >
+            View all blogs
+          </Link>
+        </div>
+
+        <div className="py-12 md:py-16">
+          <ScrollReveal className="font-coolvetica tracking-tight text-4xl md:text-5xl lg:text-7xl text-black leading-[1.1] max-w-4xl mx-auto">
+            Clients from all around the world trust us to bring their ideas to
+            life from zero to reality
+          </ScrollReveal>
+        </div>
       </div>
     </motion.section>
   );
 }
-

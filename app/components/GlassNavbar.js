@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export default function GlassNavbar() {
@@ -18,11 +19,8 @@ export default function GlassNavbar() {
   }, []);
 
   const navItems = [
-    { label: "Services", href: "#services" },
     { label: "Comparison", href: "#comparison" },
-    { label: "Process", href: "#process" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Testimonials", href: "#testimonial" },
     { label: "Blogs", href: "#blogs" },
     { label: "Contact", href: "#contact" },
   ];
@@ -46,6 +44,9 @@ export default function GlassNavbar() {
           maskImage: "linear-gradient(to bottom, black 0%, transparent 100%)",
           WebkitMaskImage:
             "linear-gradient(to bottom, black 0%, transparent 100%)",
+          backgroundColor: "rgba(255,255,255,0.55)",
+          backdropFilter: "blur(18px)",
+          WebkitBackdropFilter: "blur(18px)",
         }}
       />
       {/* Mobile Menu Overlay */}
@@ -56,6 +57,13 @@ export default function GlassNavbar() {
             : "opacity-0 invisible pointer-events-none"
         }`}
       >
+        <Link
+          href="/"
+          onClick={() => setIsOpen(false)}
+          className="absolute top-8 left-8 flex items-center gap-2"
+        >
+          <Image src="/LGS.svg" alt="Lime Green Studio" width={50 } height={50} />
+        </Link>
         <button
           onClick={() => setIsOpen(false)}
           className="absolute top-8 right-8 p-2 text-gray-500 hover:text-gray-900 transition-colors bg-gray-100 rounded-full"
@@ -105,6 +113,11 @@ export default function GlassNavbar() {
             className={`rounded-full md:border border-white/50 md:bg-white/80 md:backdrop-blur-xl md:shadow-2xl transition-all duration-500 ${
               scrolled ? "md:shadow-black/5" : "md:shadow-black/10"
             }`}
+            style={{
+              backdropFilter: "blur(18px)",
+              WebkitBackdropFilter: "blur(18px)",
+              backgroundColor: "rgba(255,255,255,0.7)",
+            }}
           >
             {/* Main content */}
             <div
@@ -112,6 +125,13 @@ export default function GlassNavbar() {
             >
               {/* Navigation Items */}
               <div className="flex items-center gap-2 md:gap-3">
+                {/* Logo */}
+                <Link
+                  href="/"
+                  className="hidden md:flex items-center gap-2 px-3 py-1.5 mr-1 rounded-full bg-white/70 backdrop-blur"
+                >
+                  <Image src="/LGS.svg" alt="Lime Green Studio" width={30} height={30} />
+                </Link>
                 {/* Mobile Menu Toggle */}
                 <button
                   onClick={() => setIsOpen(true)}

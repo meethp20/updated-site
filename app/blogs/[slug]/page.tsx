@@ -25,13 +25,13 @@ const mdxComponents = {
     h2: ({ children }: { children: React.ReactNode }) => (
         <>
             <hr className="my-12 border-gray-100" />
-            <h2 id={slugify(children?.toString() || "")} className="text-3xl font-bold mb-6 text-gray-900 scroll-mt-32">
+            <h2 id={slugify(children?.toString() || "")} className="font-coolvetica text-3xl font-bold mb-6 text-gray-900 scroll-mt-32">
                 {children}
             </h2>
         </>
     ),
     h3: ({ children }: { children: React.ReactNode }) => (
-        <h3 id={slugify(children?.toString() || "")} className="text-2xl font-bold mt-10 mb-4 text-gray-900 scroll-mt-32">
+        <h3 id={slugify(children?.toString() || "")} className="font-coolvetica text-2xl font-bold mt-10 mb-4 text-gray-900 scroll-mt-32">
             {children}
         </h3>
     ),
@@ -81,7 +81,27 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
     return (
         <div className="bg-white min-h-screen flex flex-col">
             <ReadingProgressBar />
-            {/* Logo - Top Right (Removed per user request) */}
+
+            <div className="pt-12 flex justify-center -ml-40 md:-ml-64">
+                <Link
+                    href="/"
+                    className="group flex items-center gap-4 px-5 py-2 bg-white border border-lime-200 rounded-full shadow-xl shadow-lime-900/5 transition-all duration-500 ease-out"
+                >
+                    <ArrowLeft className="w-4 h-4 text-lime-500 -translate-x-1 transition-all duration-500" />
+                    <div className="flex flex-col">
+                        <span className="text-[10px] font-bold text-lime-600 uppercase tracking-widest leading-none mb-1 transition-colors duration-500">
+                            Return to
+                        </span>
+                        <span className="text-sm font-coolvetica font-bold text-gray-900 leading-none">
+                            Home Page
+                        </span>
+                    </div>
+                    <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-lime-50 transition-colors duration-500">
+                        <Image src="/LGS.svg" alt="Lime Green Studio" width={24} height={24} className="relative z-10" />
+                        <div className="absolute inset-0 rounded-full bg-lime-400/10 transition-colors duration-500" />
+                    </div>
+                </Link>
+            </div>
 
             <main className="flex-grow pt-10 pb-24 px-6 md:px-12 lg:px-16">
                 <div className="max-w-[1400px] mx-auto">
@@ -184,7 +204,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
                             )}
 
                             {/* Article Body */}
-                            <article className="prose prose-lg md:prose-xl prose-gray max-w-[680px] mx-auto prose-headings:font-display prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-600 prose-p:leading-loose prose-a:text-lime-600 hover:prose-a:text-lime-700">
+                            <article className="prose prose-lg md:prose-xl prose-gray max-w-[680px] mx-auto prose-headings:font-coolvetica prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-600 prose-p:leading-loose prose-a:text-lime-600 hover:prose-a:text-lime-700">
                                 <MDXRemote source={content} components={mdxComponents} />
                             </article>
                         </div>

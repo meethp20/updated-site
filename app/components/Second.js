@@ -20,7 +20,7 @@ function Second() {
 
   return (
     <motion.div
-      className="w-full font-display bg-white py-12 md:py-16 px-4 md:px-8 relative overflow-hidden"
+      className="w-full font-display bg-white py-12 md:py-16 px-4 md:px-8 relative overflow-hidden border-0"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -33,20 +33,29 @@ function Second() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Centered Headline */}
         <div className="text-center mb-8 md:mb-10">
-          <h2 className="font-coolvetica tracking-wide text-4xl md:text-5xl lg:text-6xl text-black leading-tight">
-            {/* <ScrollBoldHeadingWords text="
-            Clients from all around the world <br/>
-             trust us to bring their ideas to life  from
-            <span className=font-bold" /> */}
-            <ScrollReveal>
-              Clients from all around the world <br />
-              trust us to bring their ideas to life from zero to reality
-            </ScrollReveal>
-          </h2>
+          <div className="text-center mb-14 md:mb-16 space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center justify-center gap-2 text-lime-600 font-semibold tracking-wide uppercase text-xs md:text-sm"
+            >
+              <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
+              Our Offerings
+              <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
+            </motion.div>
+            <motion.h2 className="font-coolvetica tracking-wide text-gray-900 text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
+              What we{" "}
+              <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+                Offer
+              </span>
+            </motion.h2>
+            <motion.p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
+              How we add value to your business
+            </motion.p>
+          </div>
         </div>
 
-        {/* Cards Section with proper spacing */}
-        {/* Cards Section with proper spacing */}
         <div className="mb-10 md:mb-14 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <ScrollVelocityContainer>
             <ScrollVelocityRow baseVelocity={5} direction={-1} className="py-4">
@@ -74,18 +83,15 @@ function Second() {
           </ScrollVelocityContainer>
         </div>
 
-        {/* CTA Button */}
         <div className="flex justify-center">
           <button
             onClick={handleEmailClick}
             className="group relative flex items-center rounded-full bg-black h-16 pl-8 pr-20"
           >
-            {/* Text */}
             <span className="font-coolvetica tracking-wide text-white text-lg font-medium">
               More about us
             </span>
 
-            {/* Right Circle */}
             <span className="absolute right-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white transition-transform duration-300 group-hover:translate-x-1">
               <ArrowRight className="h-5 w-5 text-black" />
             </span>

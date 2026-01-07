@@ -6,7 +6,7 @@ export default function PriceSectionWrapper() {
     return (
         <motion.section
             id="pricing"
-            className="relative w-full py-16 md:py-24 bg-gray-50/50 overflow-hidden"
+            className="relative w-full py-16 md:py-24 bg-white overflow-hidden border-0"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}

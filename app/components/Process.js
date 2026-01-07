@@ -6,7 +6,7 @@ import { Search, Code, Rocket, BarChart3 } from "lucide-react";
 const steps = [
   {
     id: "1",
-    title: "Discovery & Research",
+    title: "Research",
     description:
       "We dive deep into your market, analyzing competitors and identifying opportunities to ensure a solid foundation.",
     icon: Search,
@@ -113,7 +113,7 @@ const Process = () => {
   return (
     <section
       id="process"
-      className="relative w-full py-16 md:py-24 bg-white overflow-hidden"
+      className="relative w-full py-16 md:py-24 bg-white overflow-hidden border-0"
     >
       {/* Decorative Background Blobs */}
       <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/3 -translate-y-1/3" />
@@ -138,28 +138,27 @@ const Process = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-coolvetica tracking-wide font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-[1.05]"
+            className="font-coolvetica tracking-wide text-gray-900 text-4xl md:text-5xl lg:text-6xl font-normal leading-tight"
           >
             From concept to{" "}
-            <span className="relative inline-block">
-              market‑ready
-              <span className="absolute -bottom-2 left-0 w-full h-3 bg-lime-300/40 -rotate-1 rounded-full -z-10" />
+            <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+              Market‑ready
             </span>{" "}
             in 4 weeks.
           </motion.h2>
 
-          <p className="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">
-            A simple, four-step path from idea to launch — with strategy,
-            build, testing, and growth baked in.
+          <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            A simple, four-step path from idea to launch — with strategy, build,
+            testing, and growth baked in.
           </p>
         </div>
 
         {/* Cards Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
           {steps.map((step, index) => {
@@ -234,6 +233,34 @@ const Process = () => {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* View Detailed Process Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-16 md:mt-24 flex justify-center"
+        >
+          <button className="group relative flex items-center gap-3 px-8 py-4 bg-lime-400 text-gray-900 rounded-2xl font-coolvetica font-bold text-lg shadow-xl shadow-lime-500/20 hover:shadow-2xl hover:shadow-lime-500/40 hover:bg-lime-500 transition-all duration-300">
+            Get detailed process
+            <div className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white group-hover:translate-x-1 transition-transform duration-300">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                className="w-3.5 h-3.5"
+              >
+                <path
+                  d="M5 12h14M12 5l7 7-7 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </button>
         </motion.div>
       </div>
     </section>

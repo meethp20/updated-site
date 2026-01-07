@@ -24,7 +24,7 @@ export default function StartShippingSection() {
   return (
     <section
       id="start-shipping"
-      className="relative bg-gray-50 w-full py-0 md:py-16 md:px-12 lg:px-16 overflow-hidden"
+      className="relative bg-white w-full py-0 md:py-16 md:px-12 lg:px-16 overflow-hidden border-0"
     >
       {/* Decorative Background Blobs - top-right to bottom-left */}
       <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/3 -translate-y-1/3" />

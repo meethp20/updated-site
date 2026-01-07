@@ -11,6 +11,7 @@ import { CheckCircleIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { type FREQUENCY, FrequencyToggle } from "@/components/frequency-toggle";
+import { motion } from "framer-motion";
 
 export type Plan = {
 	name: string;
@@ -55,14 +56,29 @@ export function PricingSection({
 			{...props}
 		>
 			<div className="mx-auto max-w-4xl space-y-4">
+				<div className="flex justify-center">
+					<motion.div
+						initial={{ opacity: 0, y: 10 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						className="inline-flex items-center justify-center gap-2 text-lime-600 font-semibold tracking-wide uppercase text-xs md:text-sm"
+					>
+						<span className="w-8 h-[2px] bg-lime-500 rounded-full" />
+						Fair Pricing
+						<span className="w-8 h-[2px] bg-lime-500 rounded-full" />
+					</motion.div>
+				</div>
 				<h2
-					className="text-center font-coolvetica text-4xl tracking-wide md:text-5xl lg:text-6xl"
-					style={{ fontFamily: "Coolvetica, 'Coolvetica Hv Comp', sans-serif" }}
+					className="text-center font-coolvetica text-4xl tracking-wide md:text-5xl lg:text-6xl font-normal leading-tight"
 				>
-					{heading}
+					Plans that{" "}
+					<span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+						Scale
+					</span>{" "}
+					With You
 				</h2>
 				{description && (
-					<p className="text-center text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
+					<p className="text-center text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
 						{description}
 					</p>
 				)}

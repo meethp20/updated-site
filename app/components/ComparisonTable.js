@@ -45,7 +45,7 @@ export default function ComparisonTable() {
   return (
     <motion.section
       id="comparison"
-      className="relative py-16 md:py-20 bg-gray-50 px-4 md:px-6 overflow-hidden"
+      className="relative py-16 md:py-20 bg-white px-4 md:px-6 overflow-hidden border-0"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -57,18 +57,29 @@ export default function ComparisonTable() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
-          <h2 className="font-coolvetica tracking-wide text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-5">
-            <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-              Compare the
-            </span>{" "}
-            <span className="inline-block px-2 py-1 rounded-full bg-lime-400 text-black shadow-sm shadow-lime-400/40">
-              value.
+        <div className="text-center mb-10 md:mb-12 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center justify-center gap-2 text-lime-600 font-semibold tracking-wide uppercase text-xs md:text-sm"
+          >
+            <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
+            Unmatched Value
+            <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
+          </motion.div>
+          <h2 className="font-coolvetica tracking-wide text-gray-900 text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">
+            Compare the{" "}
+            <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+              Value
             </span>
           </h2>
           <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-            Where <span className="font-semibold text-gray-900">Lime Green Studio</span> wins on
-            speed, cost, and focus.
+            Where{" "}
+            <span className="font-semibold text-gray-900">
+              Lime Green Studio
+            </span>{" "}
+            wins on speed, cost, and focus.
           </p>
         </div>
 
@@ -84,7 +95,7 @@ export default function ComparisonTable() {
                     <span className="absolute inline-flex h-3.5 w-3.5 rounded-full bg-lime-400 opacity-60 animate-ping" />
                     <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-lime-500 shadow-[0_0_14px_rgba(190,242,100,0.95)]" />
                   </span>
-                  <span className="font-coolvetica text-base md:text-lg tracking-wide font-bold text-gray-900 leading-none">
+                  <span className="font-coolvetica text-base md:text-lg tracking-wide font-bold text-gray-900 leading-none whitespace-nowrap">
                     Lime Green Studio
                   </span>
                   <span className="hidden md:inline-flex items-center rounded-full bg-lime-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-lime-700">
@@ -123,7 +134,9 @@ export default function ComparisonTable() {
                   {/* Lime Value */}
                   <div className="p-3.5 md:p-5 flex items-center gap-2.5 text-gray-900 font-medium bg-white group-hover:bg-lime-50/30 transition-colors">
                     <Check className="w-5 h-5 text-lime-500 shrink-0 stroke-[3]" />
-                    <span className="text-sm md:text-base">{row.lime.text}</span>
+                    <span className="text-sm md:text-base">
+                      {row.lime.text}
+                    </span>
                   </div>
 
                   {/* Agency Value */}
@@ -133,7 +146,9 @@ export default function ComparisonTable() {
                     ) : (
                       <X className="w-5 h-5 text-red-400 shrink-0" />
                     )}
-                    <span className="text-sm md:text-base">{row.agency.text}</span>
+                    <span className="text-sm md:text-base">
+                      {row.agency.text}
+                    </span>
                   </div>
 
                   {/* Freelancer Value */}

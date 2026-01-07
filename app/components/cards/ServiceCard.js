@@ -23,10 +23,10 @@ export default function ServiceCard({
       </div>
       <div className="relative z-10 flex flex-col justify-between h-full p-8">
         <div>
-          <h3 className="whitespace-pre-line text-[#166534] text-3xl md:text-4xl font-bold mb-4 leading-tight">
+          <h3 className="tracking-tight text-[#166534] text-3xl md:text-4xl font-bold mb-4 leading-tight">
             {title}
           </h3>
-          <p className="text-[#14532d] text-sm leading-relaxed max-w-[280px]">
+          <p className="text-[#14532d] text-sm tracking-tight max-w-[280px]">
             {description}
           </p>
         </div>

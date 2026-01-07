@@ -71,9 +71,6 @@ export default function Hero() {
 
         <div className="absolute inset-0 bg-noise z-5 pointer-events-none" />
 
-        {/* Fade to dark for Lottie transition */}
-        <div className="hidden md:block pointer-events-none absolute bottom-0 left-0 right-0 h-24 md:h-32 z-10 bg-gradient-to-b from-transparent to-[#0b1220]" />
-
         {/* Hero Content with bg-noise */}
         <motion.div
           className={`relative z-10 w-full text-left md:text-center px-6 md:px-12 lg:px-16 pt-12 md:pt-16 lg:pt-20 pb-4 md:pb-8
@@ -83,32 +80,23 @@ export default function Hero() {
           animate="visible"
         >
           <motion.h1
-            className="font-coolvetica tracking-wide text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal mb-3 md:mb-4"
+            className="font-coolvetica text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-normal mb-3 md:mb-4"
             variants={textVariants}
           >
             Solving Problems
             <br className="" /> by Shipping{" "}
-            <span className="bg-gradient-to-r from-gray-900 to-gray-700 text-white px-3 py-1 md:px-5 md:py-2 inline-block font-bold rounded-lg shadow-lg">
+            <span className="bg-gradient-to-r from-gray-900 to-gray-700 text-white px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg">
               Products
             </span>
           </motion.h1>
 
           <motion.p
-            className="text-base md:text-lg lg:text-xl text-gray-700/70 font-sans mb-8"
+            className="text-base md:text-lg lg:text-xl text-gray-700/70 font-sans"
             variants={textVariants}
           >
             We take your idea from <span className="font-semibold">0 to 1</span>{" "}
             in just <span className="font-semibold italic">4 weeks</span>
           </motion.p>
-
-          <motion.div variants={textVariants}>
-            <a
-              href="#start-shipping"
-              className="inline-flex items-center justify-center px-8 py-3 text-lg font-bold text-black bg-lime-400 rounded-full shadow-lg shadow-lime-400/30 hover:bg-lime-500 hover:scale-105 active:scale-95 transition-all duration-300"
-            >
-              Start Shipping
-            </a>
-          </motion.div>
         </motion.div>
 
         {/* Mobile Marquee - Visible only on mobile */}
@@ -139,12 +127,6 @@ export default function Hero() {
                   src={img}
                   alt={`screenshot ${index}`}
                   priority={index < 4}
-                  style={{
-                    WebkitMaskImage:
-                      "linear-gradient(to bottom, black 0%, black 76%, transparent 100%)",
-                    maskImage:
-                      "linear-gradient(to bottom, black 0%, black 76%, transparent 100%)",
-                  }}
                 />
               </div>
             ))}
@@ -162,12 +144,6 @@ export default function Hero() {
                 src={rmp}
                 alt="screenshot of rmp"
                 priority
-                style={{
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, black 0%, black 78%, transparent 100%)",
-                  maskImage:
-                    "linear-gradient(to bottom, black 0%, black 78%, transparent 100%)",
-                }}
               />
             </div>
 
@@ -178,12 +154,6 @@ export default function Hero() {
                 src={align}
                 alt="screenshot of align"
                 priority
-                style={{
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, black 0%, black 78%, transparent 100%)",
-                  maskImage:
-                    "linear-gradient(to bottom, black 0%, black 78%, transparent 100%)",
-                }}
               />
             </div>
 
@@ -194,12 +164,6 @@ export default function Hero() {
                 src={tc}
                 alt="screenshot of tc"
                 priority
-                style={{
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, black 0%, black 78%, transparent 100%)",
-                  maskImage:
-                    "linear-gradient(to bottom, black 0%, black 78%, transparent 100%)",
-                }}
               />
             </div>
           </div>
