@@ -1,15 +1,17 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import BlogCard from "./cards/BlogCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-export default function BlogsSectionClient({ blogs = [] }) {
+const BlogsSectionClient = React.memo(({ blogs = [] }) => {
+  const clientCount = 12;
   return (
     <motion.section
       id="blogs"
-      className="relative w-full py-16 md:py-24 bg-white overflow-hidden border-0"
+      className="relative w-full pt-16 md:pt-24 pb-8 md:pb-12 bg-white overflow-hidden border-0"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -29,17 +31,17 @@ export default function BlogsSectionClient({ blogs = [] }) {
             className="inline-flex items-center justify-center gap-2 text-lime-600 font-semibold tracking-wide uppercase text-xs md:text-sm"
           >
             <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
-            Resource Hub
+            What’s cooking
             <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
           </motion.div>
-          <h2 className="font-coolvetica tracking-wide text-4xl md:text-5xl lg:text-6xl text-gray-900 font-normal leading-tight">
+          <h2 className="font-coolvetica tracking-wide text-3xl md:text-4xl lg:text-5xl text-gray-900 font-normal leading-tight">
             Latest{" "}
-            <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
-              Insights
+            <span className="bg-gradient-to-r from-lime-400 to-lime-200 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+              Blogs
             </span>
           </h2>
           <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            Thoughts on building products, design engineering, and shipping
+            Our thoughts on building products, design engineering, and shipping
             fast.
           </p>
         </div>
@@ -66,13 +68,18 @@ export default function BlogsSectionClient({ blogs = [] }) {
           </Link>
         </div>
 
-        <div className="py-12 md:py-16">
-          <ScrollReveal className="font-coolvetica tracking-tight text-4xl md:text-5xl lg:text-7xl text-black leading-[1.1] max-w-4xl mx-auto">
-            Clients from all around the world trust us to bring their ideas to
-            life from zero to reality
+        <div className="pt-16 md:pt-24 lg:pt-32 pb-4 md:pb-8 px-4">
+          <ScrollReveal className="font-coolvetica tracking-tight text-3xl md:text-5xl lg:text-7xl text-black leading-[1.2] md:leading-[1.1] max-w-6xl mx-auto text-center">
+            {`${clientCount} Clients from all around the world trust us to bring their ideas to life from zero to reality. Ready to be the ${
+              clientCount + 1
+            }th?`}
           </ScrollReveal>
         </div>
       </div>
     </motion.section>
   );
-}
+});
+
+BlogsSectionClient.displayName = "BlogsSectionClient";
+
+export default BlogsSectionClient;

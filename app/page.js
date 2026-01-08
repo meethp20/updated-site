@@ -20,7 +20,6 @@ export default function Home() {
         {/* <RocketFlight /> */}
         <GlassNavbar />
         <Hero />
-
         <Second />
         <Services />
         <ComparisonTable />

@@ -4,40 +4,34 @@ import { motion } from "framer-motion";
 
 const comparisonData = [
   {
-    criterion: "Cost",
-    lime: { text: "Fixed & Transparent ($)", positive: true },
-    agency: { text: "$$$$ (High Overhead & Retainers)", positive: false },
-    freelancer: { text: "$$ (Variable / Hourly)", negative: true },
-  },
-  {
     criterion: "Speed",
-    lime: { text: "4 Weeks Guaranteed", positive: true },
-    agency: { text: "3-6 Months average", positive: false },
-    freelancer: { text: "Unpredictable timeline", negative: true },
+    lime: { text: "Launch in 4 weeks (mvps)", positive: true },
+    agency: { text: "3–6 months", positive: false },
+    freelancer: { text: "No fixed timelines", negative: true },
   },
   {
     criterion: "Team",
-    lime: { text: "Full Product Team (PM + Dev + Design)", positive: true },
-    agency: { text: "Account Managers + Outsourced Devs", positive: false },
-    freelancer: { text: "One person doing everything", negative: true },
+    lime: { text: "Dedicated product team (PM, design, dev)", positive: true },
+    agency: { text: "Layered teams & outsourcing", positive: false },
+    freelancer: { text: "Single point of failure", negative: true },
   },
   {
     criterion: "Quality Assurance",
-    lime: { text: "Rigorous Testing Included", positive: true },
-    agency: { text: "Billable extra hours", positive: false },
-    freelancer: { text: "You are the tester", negative: true },
+    lime: { text: "QA included by default", positive: true },
+    agency: { text: "QA costs extra", positive: false },
+    freelancer: { text: "No real QA", negative: true },
   },
   {
     criterion: "Communication",
-    lime: { text: "Daily Slack Updates", positive: true },
+    lime: { text: "Daily/Alternative, async updates", positive: true },
     agency: { text: "Weekly formal emails", positive: false },
-    freelancer: { text: "Ghosting is common", negative: true },
+    freelancer: { text: "Inconsistent communication", negative: true },
   },
   {
     criterion: "Post-Launch",
-    lime: { text: "30 Days Support Included", positive: true },
-    agency: { text: "Expensive Maintenance Contract", positive: false },
-    freelancer: { text: "Hourly rate applies", negative: true },
+    lime: { text: "30 days post-launch support", positive: true },
+    agency: { text: "Costly maintenance contracts", positive: false },
+    freelancer: { text: "Paid per fix", negative: true },
   },
 ];
 
@@ -69,17 +63,13 @@ export default function ComparisonTable() {
             <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
           </motion.div>
           <h2 className="font-coolvetica tracking-wide text-gray-900 text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">
-            Compare the{" "}
-            <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
-              Value
+            Why we're{" "}
+            <span className="bg-gradient-to-r from-lime-400 to-lime-200 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+              Better
             </span>
           </h2>
           <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-            Where{" "}
-            <span className="font-semibold text-gray-900">
-              Lime Green Studio
-            </span>{" "}
-            wins on speed, cost, and focus.
+            No overhead. No delays. Just results.
           </p>
         </div>
 
@@ -104,10 +94,10 @@ export default function ComparisonTable() {
                 </div>
               </div>
               <div className="font-coolvetica text-sm md:text-lg tracking-wide font-bold text-gray-400/80 flex items-center justify-start leading-none">
-                Typical agency
+                Agencies
               </div>
               <div className="font-coolvetica text-sm md:text-lg tracking-wide font-bold text-gray-400/80 flex items-center justify-start leading-none">
-                Freelancer
+                Freelancers
               </div>
             </div>
 

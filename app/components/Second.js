@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback } from "react";
 import {
   ScrollVelocityContainer,
   ScrollVelocityRow,
@@ -14,9 +14,9 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { motion } from "framer-motion";
 
 function Second() {
-  const handleEmailClick = () => {
+  const handleEmailClick = useCallback(() => {
     window.location.href = "mailto:contact@limegreen.studio";
-  };
+  }, []);
 
   return (
     <motion.div
@@ -41,17 +41,17 @@ function Second() {
               className="inline-flex items-center justify-center gap-2 text-lime-600 font-semibold tracking-wide uppercase text-xs md:text-sm"
             >
               <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
-              Our Offerings
+              Our Stats
               <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
             </motion.div>
-            <motion.h2 className="font-coolvetica tracking-wide text-gray-900 text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
-              What we{" "}
-              <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
-                Offer
+            <motion.h2 className="font-coolvetica tracking-wide text-gray-900 text-3xl md:text-4xl lg:text-5xl font-normal leading-tight">
+              Our{" "}
+              <span className="bg-gradient-to-r from-lime-400 to-lime-200 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+                Work
               </span>
             </motion.h2>
             <motion.p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-              How we add value to your business
+              Proof of work, in numbers
             </motion.p>
           </div>
         </div>

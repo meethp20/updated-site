@@ -4,54 +4,53 @@ import ServiceCard from "./cards/ServiceCard";
 import { motion } from "framer-motion";
 import personalBranding from "@/public/service-cmp/personalbranding.png";
 import productDev from "@/public/service-cmp/productdev.png";
+const containerVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.4, 0.25, 1],
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
+  },
+};
+
+const services = [
+  {
+    title: (
+      <>
+        Personal <br className="md:hidden" /> Branding
+      </>
+    ),
+    description: "Build a strong personal brand that sells your products.",
+    imageSrc: personalBranding,
+    emailSubject: "Personal Branding Inquiry",
+  },
+  {
+    title: (
+      <>
+        Product <br className="md:hidden" /> Development
+      </>
+    ),
+    description: "Design, build and ship products that solve real problems.",
+    imageSrc: productDev,
+    emailSubject: "Product Development Inquiry",
+    imageClassName: "scale-75 translate-x-[30%] translate-y-[10%]",
+  },
+];
+
 export default function Services() {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.4, 0.25, 1],
-        staggerChildren: 0.12,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
-    },
-  };
-  const services = [
-    {
-      title: (
-        <>
-          Personal <br className="md:hidden" /> Branding
-        </>
-      ),
-      description:
-        "So whatever we have here as text is just a test of timeliness and if we can write a paragraph of text without interfering other.",
-      imageSrc: personalBranding,
-      emailSubject: "Personal Branding Inquiry",
-    },
-    {
-      title: (
-        <>
-          Product <br className="md:hidden" /> Development
-        </>
-      ),
-      description:
-        "So whatever we have here as text is just a test of timeliness and if we can write a paragraph of text without interfering other.",
-      imageSrc: productDev,
-      emailSubject: "Product Development Inquiry",
-      imageClassName: "scale-75 translate-x-[30%] translate-y-[10%]",
-    },
-  ];
-
   return (
     <section
       id="services"
@@ -75,15 +74,15 @@ export default function Services() {
             className="inline-flex items-center justify-center gap-2 text-lime-600 font-semibold tracking-wide uppercase text-xs md:text-sm"
           >
             <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
-            Premium Services
+            PREMIUM SERVICES
             <span className="w-8 h-[2px] bg-lime-500 rounded-full" />
           </motion.div>
           <motion.h2
-            className="font-coolvetica tracking-wide text-gray-900 text-4xl md:text-5xl lg:text-6xl font-normal leading-tight"
+            className="font-coolvetica tracking-wide text-gray-900 text-3xl md:text-4xl lg:text-5xl font-normal leading-tight"
             variants={itemVariants}
           >
             Our{" "}
-            <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+            <span className="bg-gradient-to-r from-lime-400 to-lime-200 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
               Services
             </span>
           </motion.h2>

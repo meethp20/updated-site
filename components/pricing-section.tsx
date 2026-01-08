@@ -10,16 +10,12 @@ import { cn } from "@/lib/utils";
 import { CheckCircleIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { type FREQUENCY, FrequencyToggle } from "@/components/frequency-toggle";
 import { motion } from "framer-motion";
 
 export type Plan = {
 	name: string;
 	info: string;
-	price: {
-		monthly: number;
-		yearly: number;
-	};
+	price: string;
 	features: {
 		text: string;
 		tooltip?: string;
@@ -35,18 +31,16 @@ interface PricingSectionProps extends React.ComponentProps<"div"> {
 	plans: Plan[];
 	heading: string;
 	description?: string;
+	footer?: string;
 }
 
-export function PricingSection({
+export const PricingSection = React.memo(({
 	plans,
 	heading,
 	description,
+	footer,
 	...props
-}: PricingSectionProps) {
-	const [frequency, setFrequency] = React.useState<"monthly" | "yearly">(
-		"monthly"
-	);
-
+}: PricingSectionProps) => {
 	return (
 		<div
 			className={cn(
@@ -69,10 +63,10 @@ export function PricingSection({
 					</motion.div>
 				</div>
 				<h2
-					className="text-center font-coolvetica text-4xl tracking-wide md:text-5xl lg:text-6xl font-normal leading-tight"
+					className="text-center font-coolvetica text-3xl tracking-wide md:text-4xl lg:text-5xl font-normal leading-tight"
 				>
 					Plans that{" "}
-					<span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+					<span className="bg-gradient-to-r from-lime-400 to-lime-200 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
 						Scale
 					</span>{" "}
 					With You
@@ -84,27 +78,31 @@ export function PricingSection({
 				)}
 			</div>
 
-			<FrequencyToggle frequency={frequency} setFrequency={setFrequency} />
 			<div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-3 pt-8">
 				{plans.map((plan) => (
-					<PricingCard frequency={frequency} key={plan.name} plan={plan} />
+					<PricingCard key={plan.name} plan={plan} />
 				))}
 			</div>
+			{footer && (
+				<p className="text-center text-muted-foreground text-sm mt-8 italic">
+					{footer}
+				</p>
+			)}
 		</div>
 	);
-}
+});
+
+PricingSection.displayName = "PricingSection";
 
 type PricingCardProps = React.ComponentProps<"div"> & {
 	plan: Plan;
-	frequency?: FREQUENCY;
 };
 
-export function PricingCard({
+export const PricingCard = React.memo(({
 	plan,
 	className,
-	frequency = "monthly",
 	...props
-}: PricingCardProps) {
+}: PricingCardProps) => {
 	return (
 		<div
 			className={cn(
@@ -130,41 +128,25 @@ export function PricingCard({
 							Popular
 						</p>
 					)}
-					{frequency === "yearly" && (
-						<p className="flex items-center gap-1 rounded-full border bg-black px-3 py-1 text-white text-xs font-medium">
-							{Math.round(
-								((plan.price.monthly * 12 - plan.price.yearly) /
-									plan.price.monthly /
-									12) *
-								100
-							)}
-							% off
-						</p>
-					)}
 				</div>
 
 				<div className="font-coolvetica text-2xl tracking-wide">{plan.name}</div>
 				<p className="font-sans text-muted-foreground text-sm mt-1">{plan.info}</p>
-				<h3 className="mt-8 mb-2 flex items-end gap-1">
-					<span className="font-coolvetica text-4xl">
-						${plan.price[frequency]}
-					</span>
-					<span className="text-muted-foreground font-medium mb-1">
-						{plan.name !== "Free"
-							? `/${frequency === "monthly" ? "mo" : "yr"}`
-							: ""}
+				<h3 className="mt-8 mb-2 flex items-baseline gap-1">
+					<span className="font-coolvetica text-4xl font-bold text-gray-900">
+						{plan.price}
 					</span>
 				</h3>
 			</div>
 			<div
 				className={cn(
 					"space-y-4 px-6 pt-8 pb-10 text-muted-foreground text-sm flex-1",
-					plan.highlighted && "bg-transparent"
+					plan.highlighted ? "bg-transparent" : "bg-gray-50/50"
 				)}
 			>
 				{plan.features.map((feature, index) => (
 					<div className="flex items-start gap-3" key={index}>
-						<CheckCircleIcon className={cn("h-5 w-5 shrink-0", plan.highlighted ? "text-lime-600" : "text-gray-400")} />
+						<CheckCircleIcon className={cn("h-5 w-5 shrink-0 text-lime-500")} />
 						<TooltipProvider>
 							<Tooltip delayDuration={0}>
 								<TooltipTrigger asChild>
@@ -204,4 +186,6 @@ export function PricingCard({
 			</div>
 		</div>
 	);
-}
+});
+
+PricingCard.displayName = "PricingCard";

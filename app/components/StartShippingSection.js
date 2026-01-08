@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import lemon from "../../public/lemon.png";
 import * as EmailValidator from "email-validator";
 import ContactButton from "@/components/ui/ContactButton";
@@ -10,23 +10,23 @@ export default function StartShippingSection() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
 
-  const handleContactClick = (e) => {
-    if (!email || !EmailValidator.validate(email)) {
-      e.preventDefault();
-      setError(true);
-      // Optional: alert if needed, but visual feedback is better
-      // alert("Please enter a valid email address.");
-    } else {
-      setError(false);
-    }
-  };
+  const handleContactClick = useCallback(
+    (e) => {
+      if (!email || !EmailValidator.validate(email)) {
+        e.preventDefault();
+        setError(true);
+      } else {
+        setError(false);
+      }
+    },
+    [email]
+  );
 
   return (
     <section
       id="start-shipping"
       className="relative bg-white w-full py-0 md:py-16 md:px-12 lg:px-16 overflow-hidden border-0"
     >
-      {/* Decorative Background Blobs - top-right to bottom-left */}
       <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-lime-200/25 blur-[120px] rounded-full mix-blend-multiply pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
@@ -38,13 +38,12 @@ export default function StartShippingSection() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <motion.div
-          className="relative w-full md:rounded-3xl min-h-[700px] md:min-h-[600px] overflow-hidden"
+          className="relative w-full md:rounded-3xl min-h-[600px] md:min-h-[500px] overflow-hidden"
           initial={{ scale: 0.95 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          {/* Background Image - Full coverage */}
           <motion.div
             className="absolute inset-0 z-0"
             initial={{ scale: 1.1 }}
@@ -61,8 +60,7 @@ export default function StartShippingSection() {
             />
           </motion.div>
 
-          {/* Content */}
-          <div className="relative z-20 px-6 sm:px-8 md:px-12 lg:px-16 py-20 md:py-20 lg:py-24 max-w-2xl flex items-center min-h-[700px] md:min-h-[600px]">
+          <div className="relative z-20 px-6 sm:px-8 md:px-12 lg:px-16 py-16 md:py-16 lg:py-20 max-w-4xl flex items-center min-h-[600px] md:min-h-[500px]">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -79,7 +77,7 @@ export default function StartShippingSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="font-coolvetica tracking-wide text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+                className="font-coolvetica tracking-wide text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.1] drop-shadow-2xl whitespace-nowrap"
               >
                 Start Shipping
               </motion.h1>
@@ -91,16 +89,15 @@ export default function StartShippingSection() {
                 viewport={{ once: true }}
                 className="space-y-2 md:space-y-3"
               >
-                <p className="text-white/95 text-lg sm:text-xl md:text-xl font-light">
+                <p className="text-white text-xl sm:text-2xl md:text-3xl font-medium tracking-tight">
                   Turn your ideas into Products.
                 </p>
-                <p className="text-white/95 text-lg sm:text-xl md:text-xl font-light">
+                <p className="text-white/90 text-lg sm:text-xl md:text-2xl font-light">
                   Stop sleeping over it and start shipping
                 </p>
               </motion.div>
 
-              {/* Contact Interface */}
-              <div className="flex flex-col gap-4 pt-4 md:pt-6">
+              <div className="flex flex-col gap-4 pt-4 md:pt-6 max-w-md mx-auto md:mx-0">
                 <input
                   type="email"
                   placeholder="name@email.com"

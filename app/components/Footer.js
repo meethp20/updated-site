@@ -10,28 +10,28 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
+const footerLinks = {
+  navigation: [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Blogs", href: "/blogs" },
+    { name: "Contact", href: "/contact" },
+  ],
+  socials: [
+    { name: "Instagram", href: "https://instagram.com", icon: Instagram },
+    { name: "Twitter", href: "https://twitter.com", icon: Twitter },
+    { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+    { name: "Facebook", href: "https://facebook.com", icon: Facebook },
+  ],
+};
+
+const currentYear = new Date().getFullYear();
+
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const footerLinks = {
-    navigation: [
-      { name: "Home", href: "/" },
-      { name: "Services", href: "/services" },
-      { name: "Blogs", href: "/blogs" },
-      { name: "Contact", href: "/contact" },
-    ],
-    socials: [
-      { name: "Instagram", href: "https://instagram.com", icon: Instagram },
-      { name: "Twitter", href: "https://twitter.com", icon: Twitter },
-      { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-      { name: "Facebook", href: "https://facebook.com", icon: Facebook },
-    ],
-  };
-
   return (
     <footer
       id="contact"
-      className="relative w-full bg-gray-50 text-gray-900 pt-16 pb-6 md:pb-16 overflow-hidden -mt-6 z-20 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)]"
+      className="relative w-full bg-gray-50 text-gray-900 pt-16 pb-10 md:pb-24 overflow-hidden -mt-6 z-20 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)]"
     >
       {/* Decorative Background Blob - Top Right */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-lime-200/30 blur-[120px] rounded-full mix-blend-multiply pointer-events-none translate-x-1/3 -translate-y-1/3" />
@@ -54,9 +54,8 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-gray-500 text-lg max-w-sm leading-relaxed">
-              Turning bold ideas into digital experiences that stand out. We
-              build products that people love to use.
+            <p className="text-gray-500 text-lg max-w-sm leading-relaxed tracking-tight">
+              Solving problems by Shipping Products
             </p>
             <div className="pt-2">
               <Link
@@ -135,7 +134,7 @@ export default function Footer() {
 
         {/* Watermark - Centered */}
         <div className="absolute inset-0 pointer-events-none select-none z-0 flex items-center justify-center">
-          <h2 className="text-[13vw] leading-none font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-green-600 opacity-[0.07] whitespace-nowrap">
+          <h2 className="text-[13vw] leading-none font-bold text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-green-600 opacity-[0.07] whitespace-nowrap pb-[1.5vw]">
             limegreen
           </h2>
         </div>

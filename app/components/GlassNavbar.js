@@ -3,6 +3,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { useCallback } from "react";
+
+const navItems = [
+  { label: "Why us", href: "#comparison" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Blogs", href: "#blogs" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function GlassNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,21 +26,14 @@ export default function GlassNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { label: "Comparison", href: "#comparison" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Blogs", href: "#blogs" },
-    { label: "Contact", href: "#contact" },
-  ];
-
-  const handleScrollToStart = (e) => {
+  const handleScrollToStart = useCallback((e) => {
     e.preventDefault();
     setIsOpen(false);
     const element = document.getElementById("start-shipping");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-  };
+  }, []);
 
   return (
     <>
@@ -62,7 +63,12 @@ export default function GlassNavbar() {
           onClick={() => setIsOpen(false)}
           className="absolute top-8 left-8 flex items-center gap-2"
         >
-          <Image src="/LGS.svg" alt="Lime Green Studio" width={50 } height={50} />
+          <Image
+            src="/LGS.svg"
+            alt="Lime Green Studio"
+            width={50}
+            height={50}
+          />
         </Link>
         <button
           onClick={() => setIsOpen(false)}
@@ -130,7 +136,12 @@ export default function GlassNavbar() {
                   href="/"
                   className="hidden md:flex items-center gap-2 px-3 py-1.5 mr-1 rounded-full bg-white/70 backdrop-blur"
                 >
-                  <Image src="/LGS.svg" alt="Lime Green Studio" width={30} height={30} />
+                  <Image
+                    src="/LGS.svg"
+                    alt="Lime Green Studio"
+                    width={30}
+                    height={30}
+                  />
                 </Link>
                 {/* Mobile Menu Toggle */}
                 <button

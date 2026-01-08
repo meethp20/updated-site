@@ -94,9 +94,9 @@ export default function Test() {
             </motion.div>
           </div>
 
-          <h2 className="font-coolvetica tracking-wide text-4xl md:text-5xl lg:text-6xl text-gray-900 font-normal leading-tight text-center">
+          <h2 className="font-coolvetica tracking-wide text-3xl md:text-4xl lg:text-5xl text-gray-900 font-normal leading-tight text-center">
             What our{" "}
-            <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+            <span className="bg-gradient-to-r from-lime-400 to-lime-200 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
               Users
             </span>{" "}
             say

@@ -18,9 +18,10 @@ export default function PriceSectionWrapper() {
 
             <div className="relative z-10">
                 <PricingSection
-                    description="Whether you're just starting out or growing fast, our flexible pricing has you covered — with no hidden costs."
-                    heading="Plans that Scale with You"
+                    description="Flexible options for every stage of your journey — from initial idea to scalable product."
+                    heading="Plans for every stage"
                     plans={PLANS}
+                    footer="Not sure which plan fits? We’ll help you choose."
                 />
             </div>
         </motion.section>
@@ -29,86 +30,60 @@ export default function PriceSectionWrapper() {
 
 const PLANS: Plan[] = [
     {
-        name: "Basic",
-        info: "For most individuals",
-        price: {
-            monthly: 7,
-            yearly: Math.round(7 * 12 * (1 - 0.12)),
-        },
+        name: "Frontend Dev & Product Consultation",
+        info: "Best for early ideas & validation",
+        price: "$499",
         features: [
-            { text: "Up to 3 Blog posts", tooltip: "100 tags" },
-            { text: "Up to 3 Transcriptions" },
-            { text: "Up to 3 Posts stored" },
-            {
-                text: "Markdown support",
-                tooltip: "Export content in Markdown format",
-            },
-            {
-                text: "Community support",
-                tooltip: "Get answers your questions on discord",
-            },
-            {
-                text: "AI powered suggestions",
-                tooltip: "Get up to 100 AI powered suggestions",
-            },
+            { text: "Product & UI consultation" },
+            { text: "Frontend development for the product" },
+            { text: "Convert designs into a working interface" },
+            { text: "Smooth animations & transitions" },
+            { text: "Guidance when you need it" },
+            { text: "10–30 day delivery" },
+            { text: "Unlimited revisions until you're satisfied" },
         ],
         btn: {
-            text: "Start Your Free Trial",
+            text: "Get Started",
             href: "#",
         },
     },
     {
         highlighted: true,
-        name: "Pro",
-        info: "For small businesses",
-        price: {
-            monthly: 17,
-            yearly: Math.round(17 * 12 * (1 - 0.12)),
-        },
+        name: "MVP Development",
+        info: "Best for startups launching their first product",
+        price: "$1,499",
         features: [
-            { text: "Up to 500 Blog Posts", tooltip: "500 tags" },
-            { text: "Up to 500 Transcriptions" },
-            { text: "Up to 500 Posts stored" },
-            {
-                text: "Unlimited Markdown support",
-                tooltip: "Export content in Markdown format",
-            },
-            { text: "SEO optimization tools" },
-            { text: "Priority support", tooltip: "Get 24/7 chat support" },
-            {
-                text: "AI powered suggestions",
-                tooltip: "Get up to 500 AI powered suggestions",
-            },
+            { text: "Web/Mobile App + admin dashboard" },
+            { text: "Custom UI design for your brand" },
+            { text: "Convert designs into a fully working app" },
+            { text: "Backend development (core logic & APIs)" },
+            { text: "App Store & Play Store deployment" },
+            { text: "End-to-end testing" },
+            { text: "1–3 month delivery" },
+            { text: "Unlimited revisions until you're satisfied" },
         ],
         btn: {
-            text: "Get started",
+            text: "Get Started",
             href: "#",
         },
     },
     {
-        name: "Business",
-        info: "For large organizations",
-        price: {
-            monthly: 49,
-            yearly: Math.round(49 * 12 * (1 - 0.12)),
-        },
+        name: "Full-Cycle App Development",
+        info: "Best for production-ready products",
+        price: "$2,599",
         features: [
-            { text: "Unlimited Blog Posts" },
-            { text: "Unlimited Transcriptions" },
-            { text: "Unlimited Posts stored" },
-            { text: "Unlimited Markdown support" },
-            {
-                text: "SEO optimization tools",
-                tooltip: "Advanced SEO optimization tools",
-            },
-            { text: "Priority support", tooltip: "Get 24/7 chat support" },
-            {
-                text: "AI powered suggestions",
-                tooltip: "Get up to 500 AI powered suggestions",
-            },
+            { text: "User app + business app + admin dashboard" },
+            { text: "Premium, fully customized UI/UX" },
+            { text: "Complete backend system built for scale" },
+            { text: "Secure architecture & growth-ready setup" },
+            { text: "Thorough testing for flawless performance" },
+            { text: "App Store & Play Store publishing" },
+            { text: "Full admin control & dashboards" },
+            { text: "2–4 month delivery" },
+            { text: "Unlimited revisions until you're satisfied" },
         ],
         btn: {
-            text: "Contact team",
+            text: "Get Started",
             href: "#",
         },
     },

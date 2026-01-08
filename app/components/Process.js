@@ -1,42 +1,60 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Search, Code, Rocket, BarChart3 } from "lucide-react";
+import { Search, Code, Rocket, Palette } from "lucide-react";
 
 const steps = [
   {
     id: "1",
     title: "Research",
     description:
-      "We dive deep into your market, analyzing competitors and identifying opportunities to ensure a solid foundation.",
+      "We understand your problem, users, and market. We validate the idea, and align on what to build and what not to.",
     icon: Search,
     week: "Week 1",
   },
   {
     id: "2",
-    title: "Development",
+    title: "Design",
     description:
-      "Our engineers build your product using scalable, modern tech stacks, focusing on performance and reliability.",
-    icon: Code,
+      "We design a user first UI, not just what you will love but what brings clarity and conversion to your users.",
+    icon: Palette,
     week: "Week 2",
   },
   {
     id: "3",
-    title: "Testing & Launch",
+    title: "Development",
     description:
-      "Rigorous beta testing ensures a bug-free experience before we deploy your product to the world.",
-    icon: Rocket,
+      "We build your product using modern tech. Core features first, no over-engineering.",
+    icon: Code,
     week: "Week 3",
   },
   {
     id: "4",
-    title: "Growth Strategy",
-    description:
-      "We don't just launch; we execute a data-driven marketing plan to acquire your first users and scale.",
-    icon: BarChart3,
+    title: "Testing & Launch",
+    description: "we test → fix → polish. Once stable, 3 2 1 Go for launch.",
+    icon: Rocket,
     week: "Week 4",
   },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 const Process = () => {
   const [activeCardIndex, setActiveCardIndex] = useState(null);
@@ -91,25 +109,6 @@ const Process = () => {
     };
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   return (
     <section
       id="process"
@@ -138,18 +137,18 @@ const Process = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-coolvetica tracking-wide text-gray-900 text-4xl md:text-5xl lg:text-6xl font-normal leading-tight"
+            className="font-coolvetica tracking-wide text-gray-900 text-3xl md:text-4xl lg:text-5xl font-normal leading-tight"
           >
-            From concept to{" "}
-            <span className="bg-gradient-to-r from-lime-500 to-lime-300 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
-              Market‑ready
+            Idea →{" "}
+            <span className="bg-gradient-to-r from-lime-400 to-lime-200 text-gray-900 px-4 md:px-5 py-1 md:py-2 inline-block font-bold rounded-lg shadow-lg shadow-lime-500/20">
+              Product
             </span>{" "}
             in 4 weeks.
           </motion.h2>
 
           <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            A simple, four-step path from idea to launch — with strategy, build,
-            testing, and growth baked in.
+            A clear four step process to take your idea from zero to 1 in just 4
+            weeks.
           </p>
         </div>
 
@@ -243,8 +242,8 @@ const Process = () => {
           transition={{ delay: 0.3 }}
           className="mt-16 md:mt-24 flex justify-center"
         >
-          <button className="group relative flex items-center gap-3 px-8 py-4 bg-lime-400 text-gray-900 rounded-2xl font-coolvetica font-bold text-lg shadow-xl shadow-lime-500/20 hover:shadow-2xl hover:shadow-lime-500/40 hover:bg-lime-500 transition-all duration-300">
-            Get detailed process
+          <button className="group relative flex items-center gap-3 px-8 py-4 bg-lime-600 text-white rounded-2xl font-sans font-bold text-lg shadow-xl shadow-lime-600/20 hover:shadow-2xl hover:shadow-lime-600/40 hover:bg-lime-700 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+            Read our case studies
             <div className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white group-hover:translate-x-1 transition-transform duration-300">
               <svg
                 viewBox="0 0 24 24"
